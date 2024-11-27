@@ -1,14 +1,18 @@
 # Primitive Progression
-**Revamps early-game tools**
+**Revamping Early-Game Tools**
 
 ## Features
-- **Wooden** tools now appears as **Flint** tools, and **Stone** as **Copper** tools with:
-  - **New Textures**
-  - **New Recipes**
-  - **New Repair Ingredients**
-- New recipes for crafting **Gravel** and **Flint**:
-  - **1x1 Gravel** => **4 x Flint**
-  - **4x4 Flint** => **1 x Gravel**
+
+- **Tool Progression Revamp:**
+  - **Wooden tools** are now **Flint tools**.
+  - **Stone tools** are replaced with **Copper tools**.
+  - Each new tool type features:
+    - **Custom Textures** for improved visuals.
+    - **Unique Crafting Recipes** to match the materials.
+    - **New Repair Ingredients** for better progression.
+- **Custom Crafting Recipes:**
+  - **Gravel to Flint:** Convert **1 Gravel** into **4 Flint**.
+  - **Flint to Gravel:** Combine **4 Flint** to craft **1 Gravel**.
 
 ## Feedback
 Found a bug or got some suggestions, head over to [GitHub Issues](https://github.com/q4niel/Primitive-Progression/issues).
