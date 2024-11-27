@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "primitive",
+	"version": "${version}",
+	"name": "Primitive Progression",
+	"description": "Revamps early-game tools",
+	"authors": [
+		"q4niel"
+	],
+	"contact": {
+		"sources": "https://github.com/q4niel/Primitive-Progression"
+	},
+	"license": "The Insight License II",
+	"icon": "assets/primitive/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"q4niel.primitive.PrimitiveProgression"
+		],
+		"fabric-datagen": [
+			"q4niel.primitive.PrimitiveProgressionDataGenerator"
+		]
+	},
+	"mixins": [
+		"primitive.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
