@@ -14,5 +14,8 @@
   - **Gravel to Flint:** Convert **1 Gravel** into **4 Flint**.
   - **Flint to Gravel:** Combine **4 Flint** to craft **1 Gravel**.
 
+## Credits
+- **Art Assets** by **Max Westerlund**
+
 ## Feedback
 Found a bug or got some suggestions, head over to [GitHub Issues](https://github.com/q4niel/Primitive-Progression/issues).
