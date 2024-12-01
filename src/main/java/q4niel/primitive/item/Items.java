@@ -8,12 +8,16 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import q4niel.primitive.PrimitiveProgression;
 
 public class Items {
-    public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1)));
+    public static final Item SOUL_CRYSTAL = newItem("soul_crystal", new Item(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
     public static void Init() {
+        addToGroup(ItemGroups.INGREDIENTS, new Item[] { SOUL_CRYSTAL });
+
         addToGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
                 LIFE_DRINK
         });
