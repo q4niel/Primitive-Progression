@@ -11,10 +11,7 @@ import net.minecraft.util.Identifier;
 import q4niel.primitive.PrimitiveProgression;
 
 public class Items {
-    public static final Item LIFE_DRINK = newItem (
-            "life_drink",
-            new SoulDrinkItem(32, new Item.Settings().maxCount(1))
-    );
+    public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1)));
 
     public static void Init() {
         addToGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
