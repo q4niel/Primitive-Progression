@@ -3,7 +3,8 @@
 	"package": "q4niel.primitive.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ItemsMixin"
+		"ItemsMixin",
+		"EntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
