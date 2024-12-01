@@ -11,23 +11,25 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import q4niel.primitive.PrimitiveProgression;
 
-public class Items {
+public class ModItems {
     public static final Item SOUL_CRYSTAL = newItem("soul_crystal", new Item(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
     public static void Init() {
-        addToGroup(ItemGroups.INGREDIENTS, new Item[] { SOUL_CRYSTAL });
+        addToItemGroup(ItemGroups.INGREDIENTS, new Item[] {
+                SOUL_CRYSTAL
+        });
 
-        addToGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
+        addToItemGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
                 LIFE_DRINK
         });
     }
 
-    private static Item newItem(String id, Item item) {
+    static Item newItem(String id, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(PrimitiveProgression.MOD_ID, id), item);
     }
 
-    private static void addToGroup(RegistryKey<ItemGroup> group, Item[] items) {
+    static void addToItemGroup(RegistryKey<ItemGroup> group, Item[] items) {
         ItemGroupEvents.modifyEntriesEvent(group).register (
                 entries -> {
                     for (Item item : items) {

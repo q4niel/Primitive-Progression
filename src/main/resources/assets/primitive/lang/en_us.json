@@ -1,4 +1,6 @@
 {
   "item.primitive.soul_crystal": "Soul Crystal",
-  "item.primitive.life_drink": "Life Drink"
+  "item.primitive.life_drink": "Life Drink",
+
+  "block.primitive.soul_ore": "Soul Ore"
 }

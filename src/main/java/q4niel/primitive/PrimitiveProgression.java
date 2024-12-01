@@ -8,7 +8,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import q4niel.primitive.item.Items;
+import q4niel.primitive.block.ModBlocks;
+import q4niel.primitive.item.ModItems;
 
 public class PrimitiveProgression implements ModInitializer {
 	public static final String MOD_ID = "primitive";
@@ -16,7 +17,8 @@ public class PrimitiveProgression implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Items.Init();
+		ModItems.Init();
+		ModBlocks.Init();
 
 		ServerPlayConnectionEvents.JOIN.register (
 				(handler, sender, server) -> {
