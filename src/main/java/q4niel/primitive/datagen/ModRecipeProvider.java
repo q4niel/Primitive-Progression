@@ -67,6 +67,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(recipeExporter)
         ;
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BUNDLE, 1)
+                .input(Items.STRING)
+                .input(Items.LEATHER)
+                .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                .offerTo(recipeExporter)
+        ;
+
         generateToolsets(recipeExporter, new Toolset[] {
                 new Toolset(Items.FLINT, Items.WOODEN_PICKAXE, Items.WOODEN_SHOVEL, Items.WOODEN_AXE, Items.WOODEN_SWORD, Items.WOODEN_HOE),
                 new Toolset(Items.COPPER_INGOT, Items.STONE_PICKAXE, Items.STONE_SHOVEL, Items.STONE_AXE, Items.STONE_SWORD, Items.STONE_HOE)
