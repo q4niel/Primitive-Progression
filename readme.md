@@ -1,6 +1,6 @@
 # **Primitive Progression**
 ### **Revamping Early-Game Progression**
-___
+
 ## **Features**
 ### **Tool Progression Revamp**
 - **Flint Tools** replace traditional **Wooden Tools**.
@@ -26,9 +26,9 @@ ___
 - Convert **1 Gravel** into **4 Flint**.
 - Craft a **Bundle** using:
   - **1 Leather** + **1 String**.
-___
+
 ## **Credits**
 - **Art Assets** created by **Max Westerlund**.
-___
+
 ## Feedback
 Found a bug or got some suggestions, head over to [GitHub Issues](https://github.com/q4niel/Primitive-Progression/issues).
