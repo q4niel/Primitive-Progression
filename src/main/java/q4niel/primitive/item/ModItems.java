@@ -1,6 +1,7 @@
 package q4niel.primitive.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -15,6 +16,42 @@ public class ModItems {
     public static final Item SOUL_CRYSTAL = newItem("soul_crystal", new Item(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
     public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
+    public static final Item COPPER_HELMET = newItem (
+            "copper_helmet",
+            new ArmorItem (
+                    ModArmorMaterials.COPPER_ARMOR_MATERIAL,
+                    ArmorItem.Type.HELMET,
+                    new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))
+            )
+    );
+
+    public static final Item COPPER_CHESTPLATE = newItem (
+            "copper_chestplate",
+            new ArmorItem (
+                    ModArmorMaterials.COPPER_ARMOR_MATERIAL,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))
+            )
+    );
+
+    public static final Item COPPER_LEGGINGS = newItem (
+            "copper_leggings",
+            new ArmorItem (
+                    ModArmorMaterials.COPPER_ARMOR_MATERIAL,
+                    ArmorItem.Type.LEGGINGS,
+                    new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))
+            )
+    );
+
+    public static final Item COPPER_BOOTS = newItem (
+            "copper_boots",
+            new ArmorItem (
+                    ModArmorMaterials.COPPER_ARMOR_MATERIAL,
+                    ArmorItem.Type.BOOTS,
+                    new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))
+            )
+    );
+
     public static void Init() {
         addToItemGroup(ItemGroups.INGREDIENTS, new Item[] {
                 SOUL_CRYSTAL
@@ -22,6 +59,13 @@ public class ModItems {
 
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
                 LIFE_DRINK
+        });
+
+        addToItemGroup(ItemGroups.COMBAT, new Item[] {
+                COPPER_HELMET,
+                COPPER_CHESTPLATE,
+                COPPER_LEGGINGS,
+                COPPER_BOOTS
         });
     }
 

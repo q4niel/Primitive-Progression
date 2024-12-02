@@ -1,4 +1,4 @@
-package q4niel.primitive;
+package q4niel.primitive.item;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
@@ -9,7 +9,7 @@ import net.minecraft.registry.tag.TagKey;
 import java.util.function.Supplier;
 import net.minecraft.item.ToolMaterials;
 
-public enum PrimitiveToolMaterials implements ToolMaterial {
+public enum ModToolMaterials implements ToolMaterial {
     FLINT (
             ToolMaterials.WOOD.getInverseTag(),
             ToolMaterials.WOOD.getDurability(),
@@ -35,7 +35,7 @@ public enum PrimitiveToolMaterials implements ToolMaterial {
     private final int enchantability;
     private final Supplier<Ingredient> repairIngredient;
 
-    PrimitiveToolMaterials(
+    ModToolMaterials(
             final TagKey<Block> inverseTag,
             final int itemDurability,
             final float miningSpeed,
