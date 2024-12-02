@@ -11,7 +11,7 @@ import net.minecraft.util.Rarity;
 import q4niel.primitive.PrimitiveProgression;
 
 public class ModItems {
-    public static final Item LIFE_CRYSTAL = newItem("life_crystal", new LifeCrystalItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item LIFE_CRYSTAL = newItem("life_crystal", new LifeCrystalItem(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
     public static final ArmorSet COPPER_ARMOR_SET = new ArmorSet("copper", ModArmorMaterials.COPPER_ARMOR_MATERIAL, 9);
 
     public static void Init() {

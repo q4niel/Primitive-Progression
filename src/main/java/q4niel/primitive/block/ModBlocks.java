@@ -21,18 +21,31 @@ public class ModBlocks {
     public static final Block LIFE_CRYSTAL_ORE = newBlock (
             "life_crystal_ore",
             new Item.Settings().rarity(Rarity.EPIC),
-            new ExperienceDroppingBlock(
+            new ExperienceDroppingBlock (
                     UniformIntProvider.create(3, 7),
                     AbstractBlock.Settings.create()
                             .requiresTool()
-                            .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+                            .sounds(BlockSoundGroup.SMALL_AMETHYST_BUD)
                             .strength(30, 1200)
+            )
+    );
+
+    public static final Block DEEPSLATE_LIFE_CRYSTAL_ORE = newBlock (
+            "deepslate_life_crystal_ore",
+            new Item.Settings().rarity(Rarity.EPIC),
+            new ExperienceDroppingBlock (
+                    UniformIntProvider.create(3, 7),
+                    AbstractBlock.Settings.create()
+                            .requiresTool()
+                            .sounds(BlockSoundGroup.SMALL_AMETHYST_BUD)
+                            .strength(50, 1200)
             )
     );
 
     public static void Init() {
         addToItemGroup(ItemGroups.NATURAL, new Block[] {
-                LIFE_CRYSTAL_ORE
+                LIFE_CRYSTAL_ORE,
+                DEEPSLATE_LIFE_CRYSTAL_ORE
         });
     }
 

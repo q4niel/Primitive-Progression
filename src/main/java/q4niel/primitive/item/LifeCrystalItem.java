@@ -6,6 +6,9 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -13,12 +16,14 @@ import net.minecraft.world.World;
 import q4niel.primitive.PlayerEntityData;
 
 public class LifeCrystalItem extends Item {
-    public LifeCrystalItem(int maxUseTime, Settings settings) {
-        super(settings);
-        this.MAX_USE_TIME = maxUseTime;
-    }
+    public LifeCrystalItem(Settings settings) { super(settings); }
 
-    final int MAX_USE_TIME;
+    final int MAX_USE_TIME = 64;
+
+    @Override
+    public SoundEvent getEatSound() {
+        return SoundEvents.ENTITY_STRIDER_EAT;
+    }
 
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) { return MAX_USE_TIME; }
@@ -42,6 +47,16 @@ public class LifeCrystalItem extends Item {
                 double maxHealth = attribute.getValue() + 2;
                 attribute.setBaseValue(maxHealth);
                 PlayerEntityData.SetMaxHealth(maxHealth);
+                world.playSound (
+                        player,
+                        player.getTrackedPosition().getPos().x,
+                        player.getTrackedPosition().getPos().y,
+                        player.getTrackedPosition().getPos().z,
+                        SoundEvents.ENTITY_PLAYER_BURP,
+                        SoundCategory.PLAYERS,
+                        1.5f,
+                        1
+                );
             }
 
             if (!player.getAbilities().creativeMode) {

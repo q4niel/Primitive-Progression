@@ -18,17 +18,19 @@ import java.util.List;
 
 public class ModConfigFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> LIFE_CRYSTAL_ORE_KEY = registerKey("life_crystal_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DEEPSLATE_LIFE_CRYSTAL_ORE_KEY = registerKey("deepslate_life_crystal_ore");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
-        RuleTest stone = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
-        RuleTest deepslate = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest stoneRule = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslateRule = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreFeatureConfig.Target> overworld = List.of (
-                OreFeatureConfig.createTarget(stone, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState()),
-                OreFeatureConfig.createTarget(deepslate, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(stoneRule, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(deepslateRule, ModBlocks.DEEPSLATE_LIFE_CRYSTAL_ORE.getDefaultState())
         );
 
         register(context, LIFE_CRYSTAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworld, 3));
+        register(context, DEEPSLATE_LIFE_CRYSTAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworld, 3));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String id) {

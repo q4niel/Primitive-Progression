@@ -5,5 +5,6 @@
   "item.primitive.copper_leggings": "Kopparbyxor",
   "item.primitive.copper_boots": "Kopparstövlar",
 
-  "block.primitive.life_crystal_ore": "Livskristallmalm"
+  "block.primitive.life_crystal_ore": "Livskristallmalm",
+  "block.primitive.deepslate_life_crystal_ore": "Djupskifferinbäddad Livskristallmalm"
 }

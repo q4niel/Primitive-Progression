@@ -15,10 +15,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.LIFE_CRYSTAL_ORE)
+                .add(ModBlocks.DEEPSLATE_LIFE_CRYSTAL_ORE)
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.LIFE_CRYSTAL_ORE)
+                .add(ModBlocks.DEEPSLATE_LIFE_CRYSTAL_ORE)
         ;
     }
 }

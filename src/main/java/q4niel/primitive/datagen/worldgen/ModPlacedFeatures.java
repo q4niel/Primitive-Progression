@@ -19,6 +19,7 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> LIFE_CRYSTAL_ORE_PLACED_KEY = registerKey("life_crystal_ore_placed");
+    public static final RegistryKey<PlacedFeature> DEEPSLATE_LIFE_CRYSTAL_ORE_PLACED_KEY = registerKey("deepslate_life_crystal_ore_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configFeats = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -27,6 +28,19 @@ public class ModPlacedFeatures {
                 context,
                 LIFE_CRYSTAL_ORE_PLACED_KEY,
                 configFeats.getOrThrow(ModConfigFeatures.LIFE_CRYSTAL_ORE_KEY),
+                ModOrePlacement.modifiersWithCount (
+                        50,
+                        HeightRangePlacementModifier.trapezoid (
+                                YOffset.fixed(-128),
+                                YOffset.fixed(256)
+                        )
+                )
+        );
+
+        register (
+                context,
+                DEEPSLATE_LIFE_CRYSTAL_ORE_PLACED_KEY,
+                configFeats.getOrThrow(ModConfigFeatures.DEEPSLATE_LIFE_CRYSTAL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount (
                         50,
                         HeightRangePlacementModifier.trapezoid (

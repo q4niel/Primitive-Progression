@@ -17,6 +17,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addNonFortuneOre(ModBlocks.LIFE_CRYSTAL_ORE, ModItems.LIFE_CRYSTAL);
+        addNonFortuneOre(ModBlocks.DEEPSLATE_LIFE_CRYSTAL_ORE, ModItems.LIFE_CRYSTAL);
     }
 
     void addNonFortuneOre(Block block, Item item) {
