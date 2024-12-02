@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import q4niel.primitive.block.ModBlocks;
 import q4niel.primitive.item.ModItems;
+import q4niel.primitive.worldgen.ModWorldGen;
 
 public class PrimitiveProgression implements ModInitializer {
 	public static final String MOD_ID = "primitive";
@@ -19,6 +20,7 @@ public class PrimitiveProgression implements ModInitializer {
 	public void onInitialize() {
 		ModItems.Init();
 		ModBlocks.Init();
+		ModWorldGen.Init();
 
 		ServerPlayConnectionEvents.JOIN.register (
 				(handler, sender, server) -> {

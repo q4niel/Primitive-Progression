@@ -1,6 +1,7 @@
 package q4niel.primitive.mixin;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,8 +28,10 @@ public class EntityMixin implements IEntityMixin {
             at = @At("HEAD")
     )
     void writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
-        if (nbt == null) return;
-        nbt.put(PrimitiveProgression.MOD_ID, this.nbt);
+        if (((Entity)(Object)this) instanceof PlayerEntity) {
+            if (nbt == null) return;
+            nbt.put(PrimitiveProgression.MOD_ID, this.nbt);
+        }
     }
 
     @Inject (
@@ -36,7 +39,9 @@ public class EntityMixin implements IEntityMixin {
             at = @At("HEAD")
     )
     void readNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (!nbt.contains(PrimitiveProgression.MOD_ID)) return;
-        this.nbt = nbt.getCompound(PrimitiveProgression.MOD_ID);
+        if (((Entity)(Object)this) instanceof PlayerEntity) {
+            if (!nbt.contains(PrimitiveProgression.MOD_ID)) return;
+            this.nbt = nbt.getCompound(PrimitiveProgression.MOD_ID);
+        }
     }
 }

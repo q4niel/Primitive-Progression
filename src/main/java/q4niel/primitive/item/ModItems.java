@@ -39,7 +39,7 @@ public class ModItems {
         public final Item GET_CHESTPLATE() { return CHESTPLATE; }
         public final Item GET_LEGGINGS() { return LEGGINGS; }
         public final Item GET_BOOTS() { return BOOTS; }
-        
+
         Item HELMET;
         Item CHESTPLATE;
         Item LEGGINGS;
