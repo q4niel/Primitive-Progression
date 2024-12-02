@@ -28,10 +28,10 @@ public class ModPlacedFeatures {
                 LIFE_CRYSTAL_ORE_PLACED_KEY,
                 configFeats.getOrThrow(ModConfigFeatures.LIFE_CRYSTAL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount (
-                        100,
+                        50,
                         HeightRangePlacementModifier.trapezoid (
-                                YOffset.fixed(-64),
-                                YOffset.fixed(64)
+                                YOffset.fixed(-128),
+                                YOffset.fixed(256)
                         )
                 )
         );

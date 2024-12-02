@@ -21,12 +21,14 @@ public class ModConfigFeatures {
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stone = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslate = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreFeatureConfig.Target> overworld = List.of (
-                OreFeatureConfig.createTarget(stone, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(stone, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(deepslate, ModBlocks.LIFE_CRYSTAL_ORE.getDefaultState())
         );
 
-        register(context, LIFE_CRYSTAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworld, 20));
+        register(context, LIFE_CRYSTAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworld, 3));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String id) {
