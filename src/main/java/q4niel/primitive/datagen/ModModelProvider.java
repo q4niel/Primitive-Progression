@@ -23,10 +23,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.LIFE_CRYSTAL, Models.GENERATED);
 
-        itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_BOOTS);
+        registerArmorSet(itemModelGenerator, ModItems.COPPER_ARMOR_SET);
 
         forceModTexture(itemModelGenerator, Items.WOODEN_PICKAXE, "flint_pickaxe", Models.HANDHELD);
         forceModTexture(itemModelGenerator, Items.WOODEN_SHOVEL, "flint_shovel", Models.HANDHELD);
@@ -49,5 +46,12 @@ public class ModModelProvider extends FabricModelProvider {
                         Identifier.of(PrimitiveProgression.MOD_ID, "item/" + texture)),
                 itemModelGenerator.writer
         );
+    }
+
+    void registerArmorSet(ItemModelGenerator itemModelGenerator, ModItems.ArmorSet set) {
+        itemModelGenerator.registerArmor((ArmorItem)set.GET_HELMET());
+        itemModelGenerator.registerArmor((ArmorItem)set.GET_CHESTPLATE());
+        itemModelGenerator.registerArmor((ArmorItem)set.GET_LEGGINGS());
+        itemModelGenerator.registerArmor((ArmorItem)set.GET_BOOTS());
     }
 }

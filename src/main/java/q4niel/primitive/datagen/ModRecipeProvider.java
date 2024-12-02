@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import q4niel.primitive.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -69,6 +70,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new Toolset(Items.FLINT, Items.WOODEN_PICKAXE, Items.WOODEN_SHOVEL, Items.WOODEN_AXE, Items.WOODEN_SWORD, Items.WOODEN_HOE),
                 new Toolset(Items.COPPER_INGOT, Items.STONE_PICKAXE, Items.STONE_SHOVEL, Items.STONE_AXE, Items.STONE_SWORD, Items.STONE_HOE)
         });
+
+        generateArmorSet(recipeExporter, Items.COPPER_INGOT, ModItems.COPPER_ARMOR_SET);
     }
 
     void generateToolsets(RecipeExporter recipeExporter, Toolset[] toolsets) {
@@ -123,5 +126,43 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .offerTo(recipeExporter)
             ;
         }
+    }
+
+    void generateArmorSet(RecipeExporter recipeExporter, Item ingredient, ModItems.ArmorSet set) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, set.GET_HELMET())
+                .input('I', ingredient)
+                .pattern("III")
+                .pattern("I I")
+                .pattern("   ")
+                .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                .offerTo(recipeExporter);
+        ;
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, set.GET_CHESTPLATE())
+                .input('I', ingredient)
+                .pattern("I I")
+                .pattern("III")
+                .pattern("III")
+                .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                .offerTo(recipeExporter);
+        ;
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, set.GET_LEGGINGS())
+                .input('I', ingredient)
+                .pattern("III")
+                .pattern("I I")
+                .pattern("I I")
+                .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                .offerTo(recipeExporter);
+        ;
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, set.GET_BOOTS())
+                .input('I', ingredient)
+                .pattern("I I")
+                .pattern("I I")
+                .pattern("   ")
+                .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                .offerTo(recipeExporter);
+        ;
     }
 }
