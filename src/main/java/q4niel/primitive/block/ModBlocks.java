@@ -13,12 +13,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import q4niel.primitive.PrimitiveProgression;
 
 public class ModBlocks {
     public static final Block LIFE_CRYSTAL_ORE = newBlock (
             "life_crystal_ore",
+            new Item.Settings().rarity(Rarity.EPIC),
             new ExperienceDroppingBlock(
                     UniformIntProvider.create(3, 7),
                     AbstractBlock.Settings.create()
@@ -34,11 +36,11 @@ public class ModBlocks {
         });
     }
 
-    static Block newBlock(String id, Block block) {
+    static Block newBlock(String id, Item.Settings itemSettings, Block block) {
         Registry.register (
                 Registries.ITEM,
                 Identifier.of(PrimitiveProgression.MOD_ID, id),
-                new BlockItem(block, new Item.Settings())
+                new BlockItem(block, itemSettings)
         );
 
         return Registry.register (

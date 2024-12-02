@@ -1,0 +1,9 @@
+{
+  "item.primitive.life_crystal": "Livskristall",
+  "item.primitive.copper_helmet": "Kopparhjälm",
+  "item.primitive.copper_chestplate": "Kopparharnesk",
+  "item.primitive.copper_leggings": "Kopparbyxor",
+  "item.primitive.copper_boots": "Kopparstövlar",
+
+  "block.primitive.life_crystal_ore": "Livskristallmalm"
+}
