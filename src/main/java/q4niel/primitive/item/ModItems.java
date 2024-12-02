@@ -13,8 +13,7 @@ import net.minecraft.util.Rarity;
 import q4niel.primitive.PrimitiveProgression;
 
 public class ModItems {
-    public static final Item SOUL_CRYSTAL = newItem("soul_crystal", new Item(new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
-    public static final Item LIFE_DRINK = newItem("life_drink", new LifeDrinkItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
+    public static final Item LIFE_CRYSTAL = newItem("life_crystal", new LifeCrystalItem(32, new Item.Settings().maxCount(1).rarity(Rarity.EPIC)));
 
     public static final Item COPPER_HELMET = newItem (
             "copper_helmet",
@@ -53,12 +52,8 @@ public class ModItems {
     );
 
     public static void Init() {
-        addToItemGroup(ItemGroups.INGREDIENTS, new Item[] {
-                SOUL_CRYSTAL
-        });
-
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, new Item[] {
-                LIFE_DRINK
+                LIFE_CRYSTAL
         });
 
         addToItemGroup(ItemGroups.COMBAT, new Item[] {

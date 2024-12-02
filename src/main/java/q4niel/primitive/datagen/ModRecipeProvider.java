@@ -10,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import q4niel.primitive.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -56,14 +55,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("II ")
                 .pattern("   ")
                 .criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT))
-                .offerTo(recipeExporter)
-        ;
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LIFE_DRINK, 1)
-                .input(ModItems.SOUL_CRYSTAL)
-                .input(Items.GOLDEN_APPLE)
-                .input(Items.POTION)
-                .criterion(hasItem(ModItems.SOUL_CRYSTAL), conditionsFromItem(ModItems.SOUL_CRYSTAL))
                 .offerTo(recipeExporter)
         ;
 

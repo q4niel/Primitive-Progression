@@ -17,8 +17,8 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import q4niel.primitive.PrimitiveProgression;
 
 public class ModBlocks {
-    public static final Block SOUL_ORE = newBlock (
-            "soul_ore",
+    public static final Block LIFE_CRYSTAL_ORE = newBlock (
+            "life_crystal_ore",
             new ExperienceDroppingBlock(
                     UniformIntProvider.create(3, 7),
                     AbstractBlock.Settings.create()
@@ -30,7 +30,7 @@ public class ModBlocks {
 
     public static void Init() {
         addToItemGroup(ItemGroups.NATURAL, new Block[] {
-                SOUL_ORE
+                LIFE_CRYSTAL_ORE
         });
     }
 

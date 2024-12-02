@@ -16,13 +16,12 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LIFE_CRYSTAL_ORE);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.SOUL_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LIFE_DRINK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LIFE_CRYSTAL, Models.GENERATED);
 
         itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_HELMET);
         itemModelGenerator.registerArmor((ArmorItem)ModItems.COPPER_CHESTPLATE);
