@@ -1,11 +1,10 @@
 package q4niel.primitive.item;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributeInstance;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -41,23 +40,19 @@ public class LifeCrystalItem extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (user instanceof PlayerEntity player) {
-            EntityAttributeInstance attribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
-            if (attribute != null) {
-                double maxHealth = attribute.getValue() + 2;
-                attribute.setBaseValue(maxHealth);
-                PlayerEntityData.SetMaxHealth(maxHealth);
-                world.playSound (
-                        player,
-                        player.getTrackedPosition().getPos().x,
-                        player.getTrackedPosition().getPos().y,
-                        player.getTrackedPosition().getPos().z,
-                        SoundEvents.ENTITY_PLAYER_BURP,
-                        SoundCategory.PLAYERS,
-                        1.5f,
-                        1
-                );
-            }
+        if (user instanceof ServerPlayerEntity player) {
+            PlayerEntityData.IncrementMaxHealth(2);
+
+            world.playSound (
+                    player,
+                    player.getTrackedPosition().getPos().x,
+                    player.getTrackedPosition().getPos().y,
+                    player.getTrackedPosition().getPos().z,
+                    SoundEvents.ENTITY_PLAYER_BURP,
+                    SoundCategory.PLAYERS,
+                    1.5f,
+                    1
+            );
 
             if (!player.getAbilities().creativeMode) {
                 stack.decrement(1);
