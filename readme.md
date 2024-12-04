@@ -22,8 +22,8 @@ ___
   - **Life Crystals** are obtainable by mining **Life Crystal Ore**.
 ___
 ### **Custom Crafting Recipes**
-- Combine **4 Flint** to craft **1 Gravel**.
-- Convert **1 Gravel** into **4 Flint**.
+- Craft **1 Flint** using:
+  - **1 Gravel** or **1 Coarse Dirt**
 - Craft a **Bundle** using:
   - **1 Leather** + **1 String**.
 
