@@ -10,6 +10,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
+import q4niel.primitive.PrimitiveProgression;
 import q4niel.primitive.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -44,19 +46,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter recipeExporter) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT, 4)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT, 1)
                 .input(Blocks.GRAVEL)
                 .criterion(hasItem(Blocks.GRAVEL), conditionsFromItem(Blocks.GRAVEL))
-                .offerTo(recipeExporter)
+                .offerTo(recipeExporter, Identifier.of(PrimitiveProgression.MOD_ID, "gravel_to_flint"))
         ;
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Blocks.GRAVEL)
-                .input('I', Items.FLINT)
-                .pattern("II ")
-                .pattern("II ")
-                .pattern("   ")
-                .criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT))
-                .offerTo(recipeExporter)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT, 1)
+                .input(Blocks.COARSE_DIRT)
+                .criterion(hasItem(Blocks.COARSE_DIRT), conditionsFromItem(Blocks.COARSE_DIRT))
+                .offerTo(recipeExporter, Identifier.of(PrimitiveProgression.MOD_ID, "coarse_dirt_to_flint"))
         ;
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BUNDLE, 1)
