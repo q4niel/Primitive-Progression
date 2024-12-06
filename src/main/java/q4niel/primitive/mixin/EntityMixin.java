@@ -1,7 +1,6 @@
 package q4niel.primitive.mixin;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,14 +12,15 @@ import q4niel.primitive.mixin_interfaces.IEntityMixin;
 
 @Mixin(Entity.class)
 public class EntityMixin implements IEntityMixin {
-    NbtCompound nbt;
+    NbtCompound persistentNbt;
+    final String persistentNbtKey = PrimitiveProgression.MOD_ID + ":persistent_nbt";
 
     @Override
-    public NbtCompound GetNbt() {
-        if (nbt == null) {
-            nbt = new NbtCompound();
+    public NbtCompound GetPersistentNbt() {
+        if (persistentNbt == null) {
+            persistentNbt = new NbtCompound();
         }
-        return nbt;
+        return persistentNbt;
     }
 
     @Inject (
@@ -28,10 +28,8 @@ public class EntityMixin implements IEntityMixin {
             at = @At("HEAD")
     )
     void writeNbt(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
-        if (((Entity)(Object)this) instanceof PlayerEntity) {
-            if (nbt == null) return;
-            nbt.put(PrimitiveProgression.MOD_ID, this.nbt);
-        }
+        if (persistentNbt == null) return;
+        nbt.put(persistentNbtKey, persistentNbt);
     }
 
     @Inject (
@@ -39,9 +37,7 @@ public class EntityMixin implements IEntityMixin {
             at = @At("HEAD")
     )
     void readNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (((Entity)(Object)this) instanceof PlayerEntity) {
-            if (!nbt.contains(PrimitiveProgression.MOD_ID)) return;
-            this.nbt = nbt.getCompound(PrimitiveProgression.MOD_ID);
-        }
+        if (!nbt.contains(persistentNbtKey)) return;
+        persistentNbt = nbt.getCompound(persistentNbtKey);
     }
 }

@@ -12,7 +12,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import q4niel.primitive.PlayerEntityData;
+import q4niel.primitive.PlayerEntityPersistentData;
 
 public class LifeCrystalItem extends Item {
     public LifeCrystalItem(Settings settings) { super(settings); }
@@ -41,7 +41,7 @@ public class LifeCrystalItem extends Item {
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (user instanceof ServerPlayerEntity player) {
-            PlayerEntityData.IncrementMaxHealth(2);
+            PlayerEntityPersistentData.IncrementMaxHealth(player, 2);
 
             world.playSound (
                     player,

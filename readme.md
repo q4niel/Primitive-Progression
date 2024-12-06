@@ -17,9 +17,13 @@ Introducing a complete **Copper Armor** set:
 - **Repair Ingredients**
 ___
 ### **Health System Revamp**
-- Players now **start with only three hearts (6 HP)**, introducing a more challenging early-game.
-- **Increase max HP** by consuming the new **Life Crystal**.
+- **Default Max Health**:
+  - Players now start with **only three hearts (6 HP)**, introducing a more challenging early-game.
+- **Increase Max Health**:
+  - **Increase** your **max HP** by consuming the new **Life Crystal** item.
   - **Life Crystals** are obtainable by mining **Life Crystal Ore**.
+- **Death Penalty**:
+  - Each time a player dies, they lose **one heart (2 HP)** from their maximum health, so don't go around dying now.
 ___
 ### **Custom Crafting Recipes**
 - Craft **1 Flint** using:
