@@ -29,8 +29,8 @@ public class ModPlacedFeatures {
                 LIFE_CRYSTAL_ORE_PLACED_KEY,
                 configFeats.getOrThrow(ModConfigFeatures.LIFE_CRYSTAL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount (
-                        50,
-                        HeightRangePlacementModifier.trapezoid (
+                        40,
+                        HeightRangePlacementModifier.uniform (
                                 YOffset.fixed(-128),
                                 YOffset.fixed(256)
                         )
@@ -43,7 +43,7 @@ public class ModPlacedFeatures {
                 configFeats.getOrThrow(ModConfigFeatures.DEEPSLATE_LIFE_CRYSTAL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount (
                         50,
-                        HeightRangePlacementModifier.trapezoid (
+                        HeightRangePlacementModifier.uniform (
                                 YOffset.fixed(-128),
                                 YOffset.fixed(256)
                         )

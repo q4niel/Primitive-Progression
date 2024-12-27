@@ -8,10 +8,11 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.TagKey;
 import java.util.function.Supplier;
 import net.minecraft.item.ToolMaterials;
+import q4niel.primitive.block.ModBlockTags;
 
 public enum ModToolMaterials implements ToolMaterial {
     FLINT (
-            ToolMaterials.WOOD.getInverseTag(),
+            ModBlockTags.INCORRECT_FOR_FLINT_TOOL,
             ToolMaterials.WOOD.getDurability(),
             ToolMaterials.WOOD.getMiningSpeedMultiplier(),
             ToolMaterials.WOOD.getAttackDamage(),
